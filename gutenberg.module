@@ -278,7 +278,7 @@ function gutenberg_form_alter(&$form, FormStateInterface $form_state, $form_id) 
       ];
     }
 
-    if (!empty($custom_settings['categories'])) {
+    if (isset($custom_settings['categories']) && !empty($custom_settings['categories'])) {
       foreach ($custom_settings['categories'] as $category) {
         $category['reference'] = str_replace('/', '-', $category['reference']);
         $form['gutenberg']['categories']['#default_value'][] = $category['reference'];
